@@ -1,0 +1,15 @@
+<h1>Transit Event DB</h1>
+
+{% if event_list %}
+    <ul>
+    {% for e in event_list %}
+        <li>{{e.event_date|date:"Y F d (D)"}} : {{ e.title }}
+            <i>({{e.category}})</i>
+        </li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No events in database.</p>
+{% endif %}
+
+
