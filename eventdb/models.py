@@ -18,12 +18,7 @@ class Event(models.Model):
         return "%s (%s) - %s" % (self.title,self.category,self.event_date)
 
     def to_JSON(self):
-        return json.dumps({ 
-            'id': self.id, 
-            'title':self.title,
-            'event_date': calendar.timegm( self.event_date.timetuple() ),
-            'description':self.description,
-            'category':str(self.category) })
+        return json.dumps( self.to_DICT) 
        
     def to_DICT(self):
         return ({ 
